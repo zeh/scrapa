@@ -1,0 +1,14 @@
+[package]
+name = "scrapa"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+html-escape = "0.2.13"
+json = "0.12.4"
+regex = "1.9.5"
+reqwest = { version = "0.11", features = ["blocking"] }
+similar = "2.2.1"
+termion = "2.0.1"
