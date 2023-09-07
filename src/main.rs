@@ -141,7 +141,7 @@ fn compare_results(existing_results: &str, new_results: &str) -> ComparisonResul
                 'o' => return ComparisonResult::MustOverwrite,
                 'i' => return ComparisonResult::MustIgnore,
                 'q' => return ComparisonResult::MustQuit,
-                _ => {},
+                _ => {}
             }
         }
     }
@@ -163,10 +163,10 @@ fn read_once() -> ReadResult {
         }
         ComparisonResult::MustIgnore => {
             println!("Ignoring results and continuing.");
-        },
+        }
         ComparisonResult::IsSame => {
             println!("Results are the same.");
-        },
+        }
         ComparisonResult::MustQuit => return ReadResult::MustQuit,
     }
 
@@ -179,12 +179,15 @@ fn main() {
     loop {
         match read_once() {
             ReadResult::MustQuit => break,
-            _ => {},
+            _ => {}
         }
 
         count += 1;
 
-        println!("Attempted {} times; waiting {} seconds until next request.", count, WAIT_TIME_SECONDS);
+        println!(
+            "Attempted {} times; waiting {} seconds until next request.",
+            count, WAIT_TIME_SECONDS
+        );
         thread::sleep(time::Duration::from_secs(WAIT_TIME_SECONDS));
     }
 }
